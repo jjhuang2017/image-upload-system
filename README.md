@@ -30,7 +30,9 @@ $ npm start
 ```
 
 * step5：圖片上傳系統的網頁位址
-`http://localhost:3000`
+```
+http://localhost:3000
+```
 
 ## 圖片縮址說明
 
