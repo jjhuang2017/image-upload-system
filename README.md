@@ -8,7 +8,7 @@
 前端統採用React.js開發框架，提供高維護性與效能性的網頁介面。
 
 * 後端系統：
-後端系統採用node.js與Express來開發RESTful API服務，提供上傳圖片剪裁結果與回傳圖片縮址功能。(系統專案[image-processing-service](https://github.com/jjhuang2017/image-processing-service)
+後端系統採用node.js與Express來開發RESTful API服務，提供上傳圖片剪裁結果與回傳圖片縮址功能。(系統專案[image-processing-service](https://github.com/jjhuang2017/image-processing-service))
 
 ## 系統安裝說明
 
