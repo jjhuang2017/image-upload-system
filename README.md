@@ -39,3 +39,8 @@ $ npm start
 * 中圖示：圖片尺寸為100*100，圖片縮址`http://localhost:3003/images/medium/imageName.jpg`
 
 * 小圖示：圖片尺寸為50*50，圖片縮址`http://localhost:3003/images/small/imageName.jpg`
+
+## 圖片上傳系統成果畫面
+
+![image](https://github.com/jjhuang2017/image-upload-system/blob/master/interface.PNG)
+
