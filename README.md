@@ -36,12 +36,18 @@ http://localhost:3000
 
 ## 圖片縮址說明
 
-* 大圖示：圖片尺寸為150*150，圖片縮址`http://localhost:3003/images/large/imageName.jpg`
-
-* 中圖示：圖片尺寸為100*100，圖片縮址`http://localhost:3003/images/medium/imageName.jpg`
-
-* 小圖示：圖片尺寸為50*50，圖片縮址`http://localhost:3003/images/small/imageName.jpg`
-
+* 大圖示：像素尺寸為150*150
+```
+縮址範例：http://localhost:3003/images/large/imageName.jpg
+```
+* 中圖示：像素尺寸為100*100
+```
+縮址範例：http://localhost:3003/images/medium/imageName.jpg
+```
+* 小圖示：像素尺寸為50*50
+```
+縮址範例：http://localhost:3003/images/small/imageName.jpg
+```
 ## 圖片上傳系統成果畫面
 
 ![image](https://github.com/jjhuang2017/image-upload-system/blob/master/interface.PNG)
