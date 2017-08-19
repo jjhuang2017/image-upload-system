@@ -44,21 +44,22 @@ export default class Demo extends Component {
   }
 
   uploadImage(){
-    var formData = new FormData();
-    //console.log(this.cropper.getCroppedCanvas().toDataURL());
-    formData.append('imageupload', this.cropper.getCroppedCanvas().toBlob());
-
-    $.ajax({
-		    type: 'POST',
-        url: 'http://localhost:3003/Image-Upload-Service',      
-        data: formData,
-		    crossDomain: true,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(){
-        }
-    });
+      this.cropper.getCroppedCanvas().toBlob(function (blob){
+      var formData = new FormData();
+      formData.append('imageupload', blob);
+  
+      $.ajax({
+          type: 'POST',
+          url: 'http://localhost:3003/Image-Upload-Service',      
+          data: formData,
+          crossDomain: true,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(){
+          }
+      });
+    }); 
   }
 
   getLargeImageURL(){
@@ -133,7 +134,7 @@ export default class Demo extends Component {
           <br/>
           <Cropper
             style={{ height: 400, width: '100%' }}
-            aspectRatio={16 / 9}
+            aspectRatio={1 / 1}
             preview=".img-preview"
             guides={false}
             src={this.state.src}
@@ -143,7 +144,7 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '50%', float: 'right' }}>
-            <h2><span>Step 2. 上傳圖片</span></h2>
+            <h2><span>圖片剪裁結果</span></h2>
             <button onClick={this.uploadImage} style={{ float: 'left' }}>上傳圖片</button>
             <br/>
             <br/>
@@ -153,7 +154,7 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '100%', float: 'right' }}>
-            <h2><span>Step 3. 取得圖片縮址</span></h2>
+            <h2><span>Step 2. 上傳圖片並取得縮址</span></h2>
             <button onClick={this.getLargeImageURL} style={{ float: 'left' }}>大圖示 (Large)</button>
             <button onClick={this.getMediumImageURL} style={{ float: 'left' }}>中圖示 (Medium)</button>
             <button onClick={this.getSmallImageURL} style={{ float: 'left' }}>小圖示 (Small)</button>
