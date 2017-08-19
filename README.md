@@ -50,5 +50,5 @@ http://localhost:3000
 ```
 ## 圖片上傳系統成果畫面
 
-![image](https://github.com/jjhuang2017/image-upload-system/blob/master/interface.PNG)
+![image](https://github.com/jjhuang2017/image-upload-system/blob/master/demo.PNG)
 
