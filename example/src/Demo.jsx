@@ -122,6 +122,9 @@ export default class Demo extends Component {
   render() {
     return (
       <div>
+        <div>
+          <h1>圖片上傳系統 Image Upload System</h1>
+        </div>
         <div className="box" style={{ width: '50%', float: 'left' }}>
           <h2><span>Step 1. 選擇圖片進行裁剪</span></h2>
           <div>
