@@ -131,7 +131,7 @@ export default class Demo extends Component {
             <input type="file" onChange={this.onChange} style={{float: 'left' }}/>
           </div>
           <div>
-            <button onClick={this.cropImage} style={{ float: 'left' }}>裁剪圖片</button>
+            <button onClick={this.cropImage} style={{ float: 'left' }}>圖片裁剪 (crop)</button>
           </div>
           <br/>
           <br/>
@@ -147,8 +147,8 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '50%', float: 'right' }}>
-            <h2><span>圖片剪裁結果</span></h2>
-            <button onClick={this.uploadImage} style={{ float: 'left' }}>上傳圖片</button>
+            <h2><span>Step 2. 上傳圖片</span></h2>
+            <button onClick={this.uploadImage} style={{ float: 'left' }}>上傳圖片 (upload)</button>
             <br/>
             <br/>
             <img style={{ height: 400, width: '100%' }} src={this.state.cropResult} />
@@ -157,10 +157,10 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '100%', float: 'right' }}>
-            <h2><span>Step 2. 上傳圖片並取得縮址</span></h2>
-            <button onClick={this.getLargeImageURL} style={{ float: 'left' }}>大圖示 (Large)</button>
-            <button onClick={this.getMediumImageURL} style={{ float: 'left' }}>中圖示 (Medium)</button>
-            <button onClick={this.getSmallImageURL} style={{ float: 'left' }}>小圖示 (Small)</button>
+            <h2><span>Step 3. 取得圖片縮址</span></h2>
+            <button onClick={this.getLargeImageURL} style={{ float: 'left' }}>大圖示 (large)</button>
+            <button onClick={this.getMediumImageURL} style={{ float: 'left' }}>中圖示 (medium)</button>
+            <button onClick={this.getSmallImageURL} style={{ float: 'left' }}>小圖示 (small)</button>
             <br/>
             <br/>
             <div className="image_url"></div>
