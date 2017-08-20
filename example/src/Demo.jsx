@@ -66,8 +66,7 @@ export default class Demo extends Component {
     });
   }
 
-  uploadMediumImageURL(){
-    $(".image_url").empty();
+  uploadMediumImageURL(){    
     this.cropper.getCroppedCanvas().toBlob(function (blob){
       var formData = new FormData();
       formData.append('imageupload', blob);
@@ -81,14 +80,14 @@ export default class Demo extends Component {
           contentType: false,
           processData: false,
           success: function(resp){
+            $(".image_url").empty();
             $(".image_url").html(resp);
           }
       });
     });
   }
 
-  uploadSmallImageURL(){
-    $(".image_url").empty();
+  uploadSmallImageURL(){  
     this.cropper.getCroppedCanvas().toBlob(function (blob){
       var formData = new FormData();
       formData.append('imageupload', blob);
@@ -102,6 +101,7 @@ export default class Demo extends Component {
           contentType: false,
           processData: false,
           success: function(resp){
+            $(".image_url").empty();
             $(".image_url").html(resp);
           }
       });
@@ -136,7 +136,7 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '50%', float: 'right' }}>
-            <h2><span>圖片剪裁結果</span></h2>
+            <h2><span>圖片裁剪結果</span></h2>
             <br/>
             <br/>
             <img style={{ height: 400, width: '100%' }} src={this.state.cropResult} />
