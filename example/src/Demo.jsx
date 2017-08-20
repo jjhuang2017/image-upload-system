@@ -16,7 +16,9 @@ export default class Demo extends Component {
     };
     this.cropImage = this.cropImage.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.uploadImage = this.uploadImage.bind(this);
+    this.uploadLargeImageURL = this.uploadLargeImageURL.bind(this);
+    this.uploadMediumImageURL = this.uploadMediumImageURL.bind(this);
+    this.uploadSmallImageURL = this.uploadSmallImageURL.bind(this);
   }
 
   onChange(e) {
@@ -43,79 +45,66 @@ export default class Demo extends Component {
     });
   }
 
-  uploadImage(){
-      this.cropper.getCroppedCanvas().toBlob(function (blob){
-      var formData = new FormData();
-      formData.append('imageupload', blob);
+  uploadLargeImageURL(){   
+    this.cropper.getCroppedCanvas().toBlob(function (blob){
+    var formData = new FormData();
+    formData.append('imageupload', blob);
   
       $.ajax({
           type: 'POST',
-          url: 'http://localhost:3003/Image-Upload-Service',      
+          url: 'http://localhost:3003/Image-Upload-Service/large',      
           data: formData,
           crossDomain: true,
           cache: false,
           contentType: false,
           processData: false,
-          success: function(){
+          success: function(resp){
+            $(".image_url").empty();
+            $(".image_url").html(resp);
           }
       });
-    }); 
-  }
-
-  getLargeImageURL(){
-    $(".image_url").empty();
-    $.ajax({
-		  type: 'GET',
-      url: 'http://localhost:3003/Large-Image-URL',    
-		  async: true,		
-	  	crossDomain: true,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function(resp){   
-			  $(".image_url").html(resp);
-		  },
-	  	error: function(e){  
-			    
-      }  
     });
   }
 
-  getMediumImageURL(){
+  uploadMediumImageURL(){
     $(".image_url").empty();
-    $.ajax({
-		  type: 'GET',
-      url: 'http://localhost:3003/Medium-Image-URL',    
-		  async: true,		
-	  	crossDomain: true,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function(resp){   
-			  $(".image_url").html(resp);
-		  },
-	  	error: function(e){  
-			    
-      }  
+    this.cropper.getCroppedCanvas().toBlob(function (blob){
+      var formData = new FormData();
+      formData.append('imageupload', blob);
+  
+      $.ajax({
+          type: 'POST',
+          url: 'http://localhost:3003/Image-Upload-Service/medium',      
+          data: formData,
+          crossDomain: true,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(resp){
+            $(".image_url").html(resp);
+          }
+      });
     });
   }
 
-  getSmallImageURL(){
+  uploadSmallImageURL(){
     $(".image_url").empty();
-    $.ajax({
-		  type: 'GET',
-      url: 'http://localhost:3003/Small-Image-URL',    
-		  async: true,		
-	  	crossDomain: true,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function(resp){   
-			  $(".image_url").html(resp);
-		  },
-	  	error: function(e){  
-			    
-      }  
+    this.cropper.getCroppedCanvas().toBlob(function (blob){
+      var formData = new FormData();
+      formData.append('imageupload', blob);
+  
+      $.ajax({
+          type: 'POST',
+          url: 'http://localhost:3003/Image-Upload-Service/small',      
+          data: formData,
+          crossDomain: true,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(resp){
+            $(".image_url").html(resp);
+          }
+      });
     });
   }
 
@@ -147,8 +136,7 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '50%', float: 'right' }}>
-            <h2><span>Step 2. 上傳圖片</span></h2>
-            <button onClick={this.uploadImage} style={{ float: 'left' }}>上傳圖片 (upload)</button>
+            <h2><span>圖片剪裁結果</span></h2>
             <br/>
             <br/>
             <img style={{ height: 400, width: '100%' }} src={this.state.cropResult} />
@@ -157,10 +145,10 @@ export default class Demo extends Component {
 
         <div>
           <div className="box" style={{ width: '100%', float: 'right' }}>
-            <h2><span>Step 3. 取得圖片縮址</span></h2>
-            <button onClick={this.getLargeImageURL} style={{ float: 'left' }}>大圖示 (large)</button>
-            <button onClick={this.getMediumImageURL} style={{ float: 'left' }}>中圖示 (medium)</button>
-            <button onClick={this.getSmallImageURL} style={{ float: 'left' }}>小圖示 (small)</button>
+            <h2><span>Step 2. 上傳圖片並取得圖片縮址</span></h2>
+            <button onClick={this.uploadLargeImageURL} style={{ float: 'left' }}>大圖示 (large)</button>
+            <button onClick={this.uploadMediumImageURL} style={{ float: 'left' }}>中圖示 (medium)</button>
+            <button onClick={this.uploadSmallImageURL} style={{ float: 'left' }}>小圖示 (small)</button>
             <br/>
             <br/>
             <div className="image_url"></div>
